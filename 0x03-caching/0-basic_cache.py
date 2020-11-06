@@ -3,6 +3,7 @@
 """
 from base_caching import BaseCaching
 
+
 class BasicCache(BaseCaching):
     """ BaseCaching defines:
       - constants of your caching system
@@ -21,7 +22,7 @@ class BasicCache(BaseCaching):
         else:
             self.cache_data[key] = item
             return self.cache_data
-            raise NotImplementedError("put must be implemented in your cache class")
+        super().put(key, item)
 
     def get(self, key):
         """ Get an item by key
@@ -30,4 +31,4 @@ class BasicCache(BaseCaching):
             return None
         else:
             return self.cache_data[key]
-            raise NotImplementedError("get must be implemented in your cache class")
+        super().get(key)
