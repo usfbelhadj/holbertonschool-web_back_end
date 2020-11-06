@@ -9,25 +9,25 @@ class BasicCache(BaseCaching):
       - constants of your caching system
       - where your data are stored (in a dictionary)
     """
-    
+    MAX_ITEMS = None
+
+
     def __init__(self):
-        BaseCaching.__init__(self)
+        super().__init__()
 
     def put(self, key, item):
         """ Add an item in the cache
         """
-        try:
+        if key and item is None:
+            pass
+        else:
             self.cache_data[key] = item
             return self.cache_data
-        except NotImplementedError:
-            BaseCaching().put(key, item)
 
     def get(self, key):
         """ Get an item by key
         """
-        try:
-            return self.cache_data[key]
-        except KeyError:
+        if key not in self.cache_data.keys():
             return None
-        except NotImplementedError:
-            BaseCaching.get(key)
+        else:
+            return self.cache_data[key]
