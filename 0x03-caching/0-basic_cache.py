@@ -11,7 +11,7 @@ class BasicCache(BaseCaching):
     MAX_ITEMS = 4
 
     def __init__(self):
-        BaseCaching.__init__(self)
+        super().__init__()
 
     def put(self, key, item):
         """ Add an item in the cache
