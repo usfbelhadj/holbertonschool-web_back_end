@@ -22,7 +22,7 @@ class BasicCache(BaseCaching):
         else:
             self.cache_data[key] = item
             return self.cache_data
-        super().put(key, item)
+            super().put(key, item)
 
     def get(self, key):
         """ Get an item by key
@@ -31,4 +31,4 @@ class BasicCache(BaseCaching):
             return None
         else:
             return self.cache_data[key]
-        super().get(key)
+            super().get(key)
