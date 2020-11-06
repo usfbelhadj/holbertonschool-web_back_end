@@ -17,18 +17,18 @@ class BasicCache(BaseCaching):
     def put(self, key, item):
         """ Add an item in the cache
         """
-        if key and item is None:
-            pass
-        else:
+        try:
             self.cache_data[key] = item
             return self.cache_data
-            super().put(key, item)
+        except NotImplementedError:
+            BaseCaching().put(key, item)
 
     def get(self, key):
         """ Get an item by key
         """
-        if key not in self.cache_data.keys():
-            return None
-        else:
+        try:
             return self.cache_data[key]
-            super().get(key)
+        except KeyError:
+            return None
+        except NotImplementedError:
+            BaseCaching.get(key)
