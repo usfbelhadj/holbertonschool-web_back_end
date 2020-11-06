@@ -12,7 +12,7 @@ class BasicCache(BaseCaching):
     MAX_ITEMS = None
 
     def __init__(self):
-        super().__init__()
+        BaseCaching.__init__(self)
 
     def put(self, key, item):
         """ Add an item in the cache
