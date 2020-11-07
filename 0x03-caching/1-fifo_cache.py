@@ -29,6 +29,7 @@ class FIFOCache(BaseCaching):
                     print("DISCARD: {}".format(dicl[0][0]))
                     dicl.pop(0)
                     self.cache_data = dict(dicl)
+            return self.cache_data
         else:
             return None
 
