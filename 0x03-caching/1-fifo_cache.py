@@ -15,6 +15,9 @@ class FIFOCache(BaseCaching):
         super().__init__()
 
     def put(self, key, item):
+        """ Add an item in the cache
+            and delete the other
+        """
         dicl = []
         t = []
         if key or item is not None:
