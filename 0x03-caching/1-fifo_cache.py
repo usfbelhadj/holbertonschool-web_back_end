@@ -17,6 +17,7 @@ class FIFOCache(BaseCaching):
     def put(self, key, item):
         """ Add an item in the cache
             and delete the other
+            Return: Value
         """
         dicl = []
         t = []
@@ -35,6 +36,7 @@ class FIFOCache(BaseCaching):
 
     def get(self, key):
         """ Get an item by key
+            Return: value or None
         """
         if key not in self.cache_data.keys():
             return None
