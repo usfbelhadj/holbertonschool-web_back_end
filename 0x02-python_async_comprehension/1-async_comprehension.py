@@ -5,11 +5,7 @@ Async Comprehensions
 
 
 import asyncio
-
-from random import uniform
-
 from typing import List
-
 a_g = __import__('0-async_generator').async_generator
 
 
