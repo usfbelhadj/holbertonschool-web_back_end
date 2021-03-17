@@ -16,7 +16,4 @@ async def async_comprehension() -> List[float]:
     The coroutine will collect 10 random numbers using an async/
     comprehensing over async_generator, then return the 10 random numbers.
     '''
-    Numbers = []
-    async for i in a_g():
-        Numbers.append(i)
-    return Numbers
+    return [i async for i in a_g()]
