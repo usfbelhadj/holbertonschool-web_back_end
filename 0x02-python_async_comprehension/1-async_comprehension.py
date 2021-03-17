@@ -22,6 +22,5 @@ async def async_comprehension() -> List[float]:
     '''
     Numbers = []
     async for i in a_g():
-        await asyncio.sleep(1)
         Numbers.append(i)
     return Numbers
