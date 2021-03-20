@@ -12,6 +12,7 @@ class FIFOCache(BaseCaching):
     def __init__(self):
         """Initiliaze
         """
+
         super().__init__()
 
     def put(self, key, item):
@@ -19,6 +20,7 @@ class FIFOCache(BaseCaching):
             and delete the other
             Return: Value
         """
+
         dicl = []
         t = []
 
@@ -36,6 +38,7 @@ class FIFOCache(BaseCaching):
         """ Get an item by key
             Return: value or None
         """
+
         if key not in self.cache_data.keys():
             return None
         else:
