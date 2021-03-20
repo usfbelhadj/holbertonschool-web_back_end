@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """FIFOCache module
 """
-BaseCaching = __import__('base_caching').BaseCaching
+from base_caching import BaseCaching
 
 
 class FIFOCache(BaseCaching):
@@ -28,15 +28,16 @@ class FIFOCache(BaseCaching):
                 dicl.append(t)
                 if len(dicl) > BaseCaching.MAX_ITEMS:
                     print("DISCARD: {}".format(dicl[0][0]))
-                    dicl.pop(-1)
+                    dicl.pop(0)
                     self.cache_data = dict(dicl)
             return self.cache_data
+        else:
+            return None
 
     def get(self, key):
         """ Get an item by key
             Return: value or None
         """
-        if key not in self.cache_data.keys():
+        if key is None or key not in self.cache_data.keys():
             return None
-        else:
-            return self.cache_data[key]
+        return self.cache_data[key]
