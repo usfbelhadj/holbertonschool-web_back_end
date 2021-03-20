@@ -21,15 +21,15 @@ class FIFOCache(BaseCaching):
         """
         dicl = []
         t = []
-        if key or item is not None:
+        if key or item:
             self.cache_data[key] = item
             for k, v in self.cache_data.items():
                 t = [k, v]
                 dicl.append(t)
                 if len(dicl) > BaseCaching.MAX_ITEMS:
-                    print("DISCARD: {}".format(dicl[0][0]))
                     dicl.pop(0)
                     self.cache_data = dict(dicl)
+                    print("DISCARD: {}".format(dicl[0][0]))
 
     def get(self, key):
         """ Get an item by key
