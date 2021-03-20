@@ -31,8 +31,6 @@ class FIFOCache(BaseCaching):
                     dicl.pop(0)
                     self.cache_data = dict(dicl)
             return self.cache_data
-        else:
-            return None
 
     def get(self, key):
         """ Get an item by key
