@@ -30,14 +30,12 @@ class FIFOCache(BaseCaching):
                     print("DISCARD: {}".format(dicl[0][0]))
                     dicl.pop(0)
                     self.cache_data = dict(dicl)
-            return self.cache_data
-        else:
-            return None
 
     def get(self, key):
         """ Get an item by key
             Return: value or None
         """
-        if key is None or key not in self.cache_data.keys():
+        if key not in self.cache_data.keys():
             return None
-        return self.cache_data[key]
+        else:
+            return self.cache_data[key]
