@@ -31,6 +31,7 @@ class FIFOCache(BaseCaching):
                 dicl.pop(0)
                 print("DISCARD: {}".format(a[0]))
                 self.cache_data = dict(dicl)
+            a = []
 
     def get(self, key):
         """ Get an item by key
