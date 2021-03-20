@@ -13,21 +13,21 @@ class FIFOCache(BaseCaching):
         """Initiliaze
         """
         super().__init__()
-        self.di = []
+        self.current_keys = []
 
     def put(self, key, item):
         """ Add an item in the cache
             and delete the other
             Return: Value
         """
-        if key and item is not None:
+        if key is not None or item is not None:
             self.cache_data[key] = item
-            if key not in self.di:
-                self.di.append(key)
-            if len(self.di) > BaseCaching.MAX_ITEMS:
-                a = self.di.pop(0)
-                self.cache_data.pop(a)
-                print("DISCARD: {}".format(a[0]))
+            if key not in self.current_keys:
+                self.current_keys.append(key)
+            if len(self.current_keys) > BaseCaching.MAX_ITEMS:
+                discarded_key = self.current_keys.pop(0)
+                del self.cache_data[discarded_key]
+                print('DISCARD: {}'.format(discarded_key))
 
     def get(self, key):
         """ Get an item by key
