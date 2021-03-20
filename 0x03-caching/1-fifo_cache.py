@@ -28,8 +28,8 @@ class FIFOCache(BaseCaching):
                 dicl.append(t)
                 if len(dicl) > BaseCaching.MAX_ITEMS:
                     dicl.pop(0)
-                    self.cache_data = dict(dicl)
                     print("DISCARD: {}".format(dicl[0][0]))
+                    self.cache_data = dict(dicl)
 
     def get(self, key):
         """ Get an item by key
