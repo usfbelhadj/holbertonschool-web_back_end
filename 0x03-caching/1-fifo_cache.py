@@ -21,7 +21,7 @@ class FIFOCache(BaseCaching):
         """
         dicl = []
         t = []
-        if key or item is not None:
+        if key or item:
             self.cache_data[key] = item
             for k, v in self.cache_data.items():
                 t = [k, v]
