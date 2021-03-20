@@ -32,7 +32,7 @@ class FIFOCache(BaseCaching):
                 t = [k, v]
                 dicl.append(t)
             if len(dicl) > BaseCaching.MAX_ITEMS:
-                print("DISCARD: {}".format(dicl[0][0]))
+                print("DISCARD: {} ".format(dicl[0][0]))
                 dicl.pop(0)
                 self.cache_data = dict(dicl)
 
