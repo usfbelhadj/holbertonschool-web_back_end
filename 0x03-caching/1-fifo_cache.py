@@ -1,8 +1,6 @@
 #!/usr/bin/env python3
 """FIFOCache module
 """
-
-
 from base_caching import BaseCaching
 
 
@@ -14,7 +12,6 @@ class FIFOCache(BaseCaching):
     def __init__(self):
         """Initiliaze
         """
-
         super().__init__()
 
     def put(self, key, item):
@@ -22,19 +19,22 @@ class FIFOCache(BaseCaching):
             and delete the other
             Return: Value
         """
-        if key or item is not None:
+        dicl = []
+        t = []
+        if key and item is not None:
             self.cache_data[key] = item
-
-        if len(self.cache_data) > BaseCaching.MAX_ITEMS:
-            dicl = sorted(self.cache_data.keys())
-            self.cache_data.pop(dicl[0])
-            print("DISCARD: {}".format(dicl[0]))
+            for k, v in self.cache_data.items():
+                t = [k, v]
+                dicl.append(t)
+            if len(dicl) > BaseCaching.MAX_ITEMS:
+                print("DISCARD: {}".format(dicl[0][0]))
+                dicl.pop(0)
+                self.cache_data = dict(dicl)
 
     def get(self, key):
         """ Get an item by key
             Return: value or None
         """
-
         if key not in self.cache_data.keys():
             return None
         else:
