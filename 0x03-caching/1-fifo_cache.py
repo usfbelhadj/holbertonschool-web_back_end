@@ -25,10 +25,10 @@ class FIFOCache(BaseCaching):
         if key or item is not None:
             self.cache_data[key] = item
 
-            if len(self.cache_data) > BaseCaching.MAX_ITEMS:
-                dicl = sorted(self.cache_data.keys())
-                self.cache_data.pop(dicl[0])
-                print("DISCARD: {}".format(dicl[0]))
+        if len(self.cache_data) > BaseCaching.MAX_ITEMS:
+            dicl = sorted(self.cache_data.keys())
+            self.cache_data.pop(dicl[0])
+            print("DISCARD: {}".format(dicl[0]))
 
     def get(self, key):
         """ Get an item by key
