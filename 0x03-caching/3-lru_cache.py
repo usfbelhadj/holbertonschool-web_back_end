@@ -36,7 +36,8 @@ class LRUCache(BaseCaching):
         """ Get an item by key
             Return: value or None
         """
-        if key not in self.cache_data.keys():
-            return None
+        if key and self.cache_data.get(key):
+            self.l_k.append(self.l_k.pop(self.l_k.index(key)))
+            return self.cache_data.get(key)
         else:
-            return self.l_k.append(self.l_k.pop(self.l_k.index(key)))
+            return None
