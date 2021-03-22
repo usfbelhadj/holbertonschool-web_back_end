@@ -29,8 +29,8 @@ class LRUCache(BaseCaching):
                 self.l_k.append(self.l_k.pop(self.l_k.index(key)))
             if len(self.l_k) > BaseCaching.MAX_ITEMS:
                 del_key = self.l_k.pop(0)
-                print("DISCARD: {}".format(del_key))
                 del self.cache_data[del_key]
+                print("DISCARD: {}".format(del_key))
 
     def get(self, key):
         """ Get an item by key
