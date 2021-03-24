@@ -36,6 +36,5 @@ class Server:
         p, p_s = index_range(page, page_size)
         if p >= len(self.dataset()):
             return []
-        else:
-            res = self.dataset()
-            return res[p:p_s]
+        res = self.dataset()
+        return res[p:p_s]
