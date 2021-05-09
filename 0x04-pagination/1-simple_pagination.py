@@ -31,10 +31,11 @@ class Server:
         return self.__dataset
 
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
-      assert type(page) == int and page > 0 and type(page_size) == int and page_size > 0
-      indexes, page_indexes = index_range(page, page_size)
-      if indexes > len(self.dataset()):
-          return []
-      else:
-          return self.dataset()[indexes:page_indexes]
-          
+        assert type(page) == int and page > 0 and type(
+            page_size) == int and page_size > 0
+        indexes, page_indexes = index_range(page, page_size)
+        if indexes > len(self.dataset()):
+            return []
+        else:
+            res = self.dataset()
+            return res[indexes:page_indexes]
