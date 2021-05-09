@@ -36,6 +36,5 @@ class Server:
         indexes, page_indexes = index_range(page, page_size)
         if indexes > len(self.dataset()):
             return []
-        else:
-            res = self.dataset()
-            return res[indexes:page_indexes]
+        res = self.dataset()
+        return res[indexes:page_indexes]
