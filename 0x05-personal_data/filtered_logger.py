@@ -3,7 +3,7 @@ import re
 from typing import List
 
 """
-filtered_logger
+The function should use a regex to replace occurrences of certain field values
 """
 
 
