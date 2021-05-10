@@ -50,7 +50,7 @@ class Server:
             page_size) == int and page_size > 0
         indexes, page_indexes = index_range(page, page_size)
         if indexes > 0:
-            prev_page =  page - 1
+            prev_page = page - 1
         else:
             prev_page = None
         pages = math.ceil(len(self.dataset()) / page_size)
@@ -59,7 +59,17 @@ class Server:
             next_page = None
             page_size = 0
             prev_page = page - 1
-            return  {'page_size': page_size, 'page': page, 'data':res, 'next_page': next_page , 'prev_page': prev_page, 'total_pages': pages}
+            return {'page_size': page_size,
+                    'page': page,
+                    'data': res,
+                    'next_page': next_page,
+                    'prev_page': prev_page,
+                    'total_pages': pages}
         res = self.dataset()
 
-        return  {'page_size': page_size, 'page': page, 'data':res[indexes:page_indexes], 'next_page': page + 1, 'prev_page': prev_page, 'total_pages': pages}
+        return {'page_size': page_size,
+                'page': page,
+                'data': res[indexes:page_indexes],
+                'next_page': page + 1,
+                'prev_page': prev_page,
+                'total_pages': pages}
