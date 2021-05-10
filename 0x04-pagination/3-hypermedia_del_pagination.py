@@ -27,7 +27,7 @@ class Server:
             self.__dataset = dataset[1:]
 
         return self.__dataset
-    
+
     def indexed_dataset(self) -> Dict[int, List]:
         """Dataset indexed by sorting position, starting at 0
         """
@@ -40,10 +40,10 @@ class Server:
         return self.__indexed_dataset
 
     def get_hyper_index(self, index: int = None, page_size: int = 10) -> Dict:
-        
+
         '''get_hyper_indexs'''
         assert type(index) == int and type(page_size) == int
-        assert len(self.indexed_dataset()) > index  and index >= 0
+        assert len(self.indexed_dataset()) > index and index >= 0
         next_index = index + page_size
         data = []
         for i in range(index, next_index):
