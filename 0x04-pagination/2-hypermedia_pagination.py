@@ -46,30 +46,16 @@ class Server:
         '''
         get_hyper
         '''
-        assert type(page) == int and page > 0 and type(
-            page_size) == int and page_size > 0
         indexes, page_indexes = index_range(page, page_size)
         if indexes > 0:
             prev_page = page - 1
         else:
             prev_page = None
         pages = math.ceil(len(self.dataset()) / page_size)
-        if indexes > len(self.dataset()):
-            res = []
-            next_page = None
-            page_size = 0
-            prev_page = page - 1
-            return {'page_size': page_size,
-                    'page': page,
-                    'data': res,
-                    'next_page': next_page,
-                    'prev_page': prev_page,
-                    'total_pages': pages}
-        res = self.dataset()
 
-        return {'page_size': page_size,
+        return {'page_size': len(self.get_page(page, page_size)),
                 'page': page,
-                'data': res[indexes:page_indexes],
+                'data': self.get_page(page, page_size),
                 'next_page': page + 1,
                 'prev_page': prev_page,
                 'total_pages': pages}
