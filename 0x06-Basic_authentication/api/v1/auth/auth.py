@@ -15,7 +15,7 @@ class Auth:
         return False
 
     def authorization_header(self, request=None) -> str:
-        return request
+        return None
 
     def current_user(self, request=None) -> TypeVar("User"):
-        return request
+        return None
