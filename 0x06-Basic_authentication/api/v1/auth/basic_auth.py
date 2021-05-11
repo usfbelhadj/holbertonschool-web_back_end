@@ -21,6 +21,6 @@ class BasicAuth(Auth):
         if type(authorization_header) is not str:
             print("Waht")
             return None
-        if authorization_header.startswith("Basic "):
+        if not authorization_header.startswith("Basic "):
             return None
         return authorization_header[6:]
