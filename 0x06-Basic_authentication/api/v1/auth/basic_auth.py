@@ -18,10 +18,9 @@ class BasicAuth(Auth):
         """
         if authorization_header is None:
             return None
-        elif type(authorization_header) is not str:
+        if type(authorization_header) is not str:
             print("Waht")
             return None
-        elif authorization_header[0:6] != "Basic ":
+        if authorization_header[0:6] != "Basic ":
             return None
-        else:
-            return authorization_header[6:]
+        return authorization_header[6:]
