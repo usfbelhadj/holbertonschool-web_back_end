@@ -79,7 +79,7 @@ class BasicAuth(Auth):
                 return user
 
         return None
-    
+
     def current_user(self, request=None) -> TypeVar('User'):
         '''
         API is fully protected by a Basic Authentication
