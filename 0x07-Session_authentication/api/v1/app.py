@@ -64,13 +64,13 @@ def before_request_func() -> str:
         is False
     ):
         return None
-    request.current_user = auth.current_user(request)
 
     if auth.authorization_header(request) and auth.session_cookie(
             request) is None:
         return abort(401)
     if auth.current_user(request) is None:
         return abort(403)
+    request.current_user = auth.current_user(request)
 
 
 if __name__ == "__main__":
