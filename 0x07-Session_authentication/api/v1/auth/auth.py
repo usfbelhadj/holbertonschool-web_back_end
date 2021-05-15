@@ -4,7 +4,7 @@ Auth API
 """
 from flask import request
 from typing import List, TypeVar
-
+import os
 
 class Auth:
     """
@@ -58,5 +58,6 @@ class Auth:
         """
         if request is None:
             return None
-        session_id = request.cookies.get("_my_session_id")
+        session_name = os.getenv("SESSION_NAME")
+        session_id = request.cookies.get(session_name)
         return session_id
