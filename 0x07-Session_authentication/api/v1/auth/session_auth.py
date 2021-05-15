@@ -27,3 +27,18 @@ class SessionAuth(Auth):
         Session_ID = str(uuid4())
         self.user_id_by_session_id[Session_ID] = user_id
         return Session_ID
+
+    def user_id_for_session_id(self, session_id: str = None) -> str:
+        """[user_id_for_session_id]
+
+        Return None if session_id is None
+        Return None if session_id is not a string
+        Return the value (the User ID) for the key session_id in the
+        dictionary user_id_by_session_id.
+        You must use .get() built-in for accessing in a dictionary
+        a value based on key
+        """
+        if session_id is None or type(session_id) is not str:
+            return None
+        User_ID = self.user_id_by_session_id.get(session_id)
+        return User_ID
