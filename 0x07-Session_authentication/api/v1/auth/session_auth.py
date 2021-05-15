@@ -8,4 +8,3 @@ class SessionAuth(Auth):
     """
     SessionAuth Class
     """
-    pass
