@@ -2,7 +2,6 @@
 """
 Session Auth
 """
-from flask import request
 
 class SessionAuth(Auth):
     """

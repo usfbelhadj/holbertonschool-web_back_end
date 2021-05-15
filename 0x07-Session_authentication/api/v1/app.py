@@ -18,12 +18,12 @@ if os.getenv("AUTH_TYPE") == "auth":
 
     auth = Auth()
 
-if os.getenv("AUTH_TYPE") == "session_auth":
+if os.getenv("AUTH_TYPE") == "basic_auth":
     from api.v1.auth.basic_auth import BasicAuth
 
     auth = BasicAuth()
 
-if os.getenv("AUTH_TYPE") == "basic_auth":
+if os.getenv("AUTH_TYPE") == "session_auth":
     from api.v1.auth.session_auth import SessionAuth
 
     auth = SessionAuth()
