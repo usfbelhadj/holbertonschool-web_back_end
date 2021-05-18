@@ -63,15 +63,8 @@ class DB:
         """[update_user]
         method that takes as argument a required user_id integer
         and arbitrary keyword arguments, and returns None
-
-        Args:
-            user_id (int): [The id user for searching]
-
-        Raises:
-            ValueError: [if not exist]
-        Return:
-            None
         """
+
         user = self.find_user_by(id=user_id)
         for k, v in kwargs.items():
             if not hasattr(user, k):
