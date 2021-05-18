@@ -60,10 +60,8 @@ class DB:
         return user
 
     def update_user(self, user_id: int, **kwargs) -> None:
-        """[update_user]
-        method that takes as argument a required user_id integer
-        and arbitrary keyword arguments, and returns None
-        """
+        """method that takes as argument a required user_id integer
+        and arbitrary keyword arguments, and returns None"""
 
         user = self.find_user_by(id=user_id)
         for k, v in kwargs.items():
