@@ -60,6 +60,14 @@ class DB:
         return user
 
     def update_user(self, user_id: int, **kwargs):
+        """[update_user]
+
+        Args:
+            user_id (int): [The id user for searching]
+
+        Raises:
+            ValueError: [if not exist]
+        """
         user = self.find_user_by(id=user_id)
         for k, v in kwargs.items():
             if not hasattr(user, k):
