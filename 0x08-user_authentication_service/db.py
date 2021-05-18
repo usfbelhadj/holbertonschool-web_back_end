@@ -69,6 +69,8 @@ class DB:
 
         Raises:
             ValueError: [if not exist]
+        Return:
+            None
         """
         user = self.find_user_by(id=user_id)
         for k, v in kwargs.items():
