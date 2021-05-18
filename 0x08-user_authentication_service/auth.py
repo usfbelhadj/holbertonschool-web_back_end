@@ -6,7 +6,7 @@ Auth file
 import bcrypt
 
 
-def _hash_password(password: str) -> bytes:
+def _hash_password(password: str) -> str:
     """[_hash_password]
     method that takes in a password string arguments and returns bytes
     Args:
