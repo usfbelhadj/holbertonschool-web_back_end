@@ -6,11 +6,12 @@ from flask import Flask, jsonify
 app = Flask(__name__)
 
 
-@app.route("/")
-def app():
+@app.route("/", methods=["GET"], strict_slashes=False)
+def status() -> str:
     """
     Basic Flask
     """
+
     return jsonify({"message": "Bienvenue"})
 
 
