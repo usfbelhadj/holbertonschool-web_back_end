@@ -8,6 +8,9 @@ app = Flask(__name__)
 
 @app.route("/")
 def app():
+    """
+    Basic Flask
+    """
     return jsonify({"message": "Bienvenue"})
 
 
