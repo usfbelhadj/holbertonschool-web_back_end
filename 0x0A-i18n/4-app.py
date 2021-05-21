@@ -35,9 +35,7 @@ def get_locale():
     match with our supported languages
     """
     local = request.args.get("locale")
-    if local is None:
-        return None
-    else:
+    if local:
         return local
     return request.accept_languages.best_match([Config.LANGUAGES])
 
