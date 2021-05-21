@@ -19,7 +19,3 @@ msgstr "Bonjour monde!"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.9.1\n"
-
-#: templates/4-index.html:13
-msgid "home_header"
-msgstr "Bonjour monde!"
