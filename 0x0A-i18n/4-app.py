@@ -26,7 +26,7 @@ def index():
     """
     Basic Flask app
     """
-    return render_template("3-index.html")
+    return render_template("4-index.html")
 
 
 @babel.localeselector
@@ -34,6 +34,11 @@ def get_locale():
     """
     match with our supported languages
     """
+    local = request.args.get("locale")
+    if local is None:
+        return None
+    else:
+        return local
     return request.accept_languages.best_match([Config.LANGUAGES])
 
 
