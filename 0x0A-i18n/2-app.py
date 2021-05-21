@@ -34,7 +34,7 @@ def get_locale():
     """
     match with our supported languages
     """
-    return request.accept_languages[Config.LANGUAGES]
+    return request.accept_languages.best_match([Config.LANGUAGES])
 
 
 if __name__ == "__main__":
