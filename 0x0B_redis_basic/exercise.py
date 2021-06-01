@@ -22,6 +22,24 @@ def count_calls(method: Callable) -> Callable:
     return wrapper
 
 
+def call_history(method: Callable) -> Callable:
+    """
+    decorator to store the history
+    of inputs and outputs for a particular function.
+    """
+    key = method.__qualname__
+
+    @wraps(method)
+    def wrapper(self, *args):
+        """Wrapper method"""
+        self._redis.rpush("{}:inputs".format(key), str(args))
+        result = method(self, *args)
+        self._redis.rpush("{}:outputs".format(key), str(result))
+        return result
+
+    return wrapper
+
+
 class Cache:
     """
     Cache
@@ -36,6 +54,7 @@ class Cache:
         self._redis.flushdb()
 
     @count_calls
+    @call_history
     def store(self, data: Union[str, bytes, int, float]) -> str:
         """
         Create a store method that takes a data argument and returns a string
