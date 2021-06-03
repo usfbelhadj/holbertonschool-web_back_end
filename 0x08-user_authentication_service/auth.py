@@ -37,4 +37,4 @@ class Auth:
             user = self._db.add_user(email, pwd)
             return user
         finally:
-            raise ValueError("User {email} already exists")
+            raise ValueError("could not create a new user: User {email} already exists")
