@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""DB module
+"""
+DB module
 """
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
@@ -12,7 +13,9 @@ from sqlalchemy.orm.exc import *
 
 
 class DB:
-    """DB class"""
+    """
+    DB class
+    """
 
     def __init__(self) -> None:
         """Initialize a new DB instance"""
@@ -60,9 +63,10 @@ class DB:
         return user
 
     def update_user(self, user_id: int, **kwargs) -> None:
-        """method that takes as argument a required user_id integer
-        and arbitrary keyword arguments, and returns None"""
-
+        """
+        method that takes as argument a required user_id integer
+        and arbitrary keyword arguments and returns None
+        """
         user = self.find_user_by(id=user_id)
         for k, v in kwargs.items():
             if not hasattr(user, k):
